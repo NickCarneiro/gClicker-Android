@@ -5,7 +5,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
     <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Welcome to gClicker."></TextView>
-    <ImageView android:id="@+id/imageView1" android:src="@drawable/garg" android:layout_width="134dp" android:layout_height="181dp"></ImageView>
+    <ImageView android:layout_width="134dp" android:layout_height="181dp" android:id="@+id/imageView_garg" android:src="@drawable/garg"></ImageView>
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="EID" android:id="@+id/text_eid">
         <requestFocus></requestFocus>
     </EditText>
