@@ -4,12 +4,12 @@
   android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-    <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Welcome to gClicker."></TextView>
+    <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Welcome to gClicker." android:id="@+id/textView_welcome"></TextView>
     <ImageView android:layout_width="134dp" android:layout_height="181dp" android:id="@+id/imageView_garg" android:src="@drawable/garg"></ImageView>
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="EID" android:id="@+id/text_eid">
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="EID" android:id="@+id/editText_Eid" android:maxLines="1">
         <requestFocus></requestFocus>
     </EditText>
-    <EditText android:layout_width="match_parent" android:id="@+id/editText1" android:layout_height="wrap_content" android:hint="Server IP"></EditText>
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/button_connect" android:text="Connect"></Button>
+    <EditText android:layout_width="match_parent" android:id="@+id/editText_Ip" android:layout_height="wrap_content" android:hint="Server IP" android:maxLines="1" android:text="206.76.67.248"></EditText>
+    <Button android:layout_height="wrap_content" android:id="@+id/button_connect" android:text="Connect" android:layout_width="match_parent"></Button>
     
 </LinearLayout>

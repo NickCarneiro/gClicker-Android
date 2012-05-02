@@ -2,14 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="match_parent"
 	android:layout_height="match_parent">
-    <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="TextView" android:id="@+id/textView_question"></TextView>
+    <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="Connecting to server..." android:id="@+id/textView_serverIp"></TextView>
+    <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView_question" android:text="Waiting for question..."></TextView>
 	<RadioGroup android:id="@+id/radioGroup_answers"
 		android:layout_width="wrap_content" android:layout_height="wrap_content">
-		<RadioButton android:id="@+id/radioButton_placeholder"
+		<RadioButton android:id="@+id/radioButton_A"
 			android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="A"></RadioButton>
+			<RadioButton android:id="@+id/radioButton_B"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="B"></RadioButton>
+			<RadioButton android:id="@+id/radioButton_C"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="C"></RadioButton>
+			<RadioButton android:id="@+id/radioButton_D"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="D"></RadioButton>
+			<RadioButton android:id="@+id/radioButton_E"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="E"></RadioButton>
 	</RadioGroup>
-	<Button android:id="@+id/button_send" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:text="Send Answer"></Button>
+	<Button android:id="@+id/button_send" android:layout_height="wrap_content" android:text="Send Answer" android:layout_width="match_parent"></Button>
 
 
 
