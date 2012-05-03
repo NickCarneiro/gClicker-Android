@@ -9,7 +9,7 @@
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="EID" android:id="@+id/editText_Eid" android:maxLines="1" android:inputType="text">
         <requestFocus></requestFocus>
     </EditText>
-    <EditText android:layout_width="match_parent" android:id="@+id/editText_Ip" android:layout_height="wrap_content" android:hint="Server IP" android:maxLines="1" android:text="192.168.0.106" android:inputType="phone"></EditText>
+    <EditText android:layout_width="match_parent" android:id="@+id/editText_Ip" android:layout_height="wrap_content" android:hint="Server IP" android:maxLines="1" android:text="206.76.78.90" android:inputType="phone"></EditText>
     <Button android:layout_height="wrap_content" android:id="@+id/button_connect" android:text="Connect" android:layout_width="match_parent"></Button>
     
 </LinearLayout>
