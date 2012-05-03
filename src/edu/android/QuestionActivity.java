@@ -38,6 +38,9 @@ public class QuestionActivity extends Activity {
 		GClickerApplication app = GClickerApplication.getInstance();
 		serverIp.setText("Connected to " + app.bundle.socket.getInetAddress().getHostAddress() + ", id: " + app.clicker_id);
 
+		//disable send button while waiting for question.
+		
+		
 		//run asynctask to wait for questions
 		WaitForQuestion wait = new WaitForQuestion();
 		wait.execute();
@@ -45,6 +48,18 @@ public class QuestionActivity extends Activity {
 
 	private class WaitForQuestion extends AsyncTask<Void, Void, Question>{
 
+		@Override
+		protected void onPreExecute(){
+			//get reference to radiogroup
+			RadioGroup answerGroup = (RadioGroup)findViewById(R.id.radioGroup_answers);
+			
+			//hide all answers
+			for(int i = 0; i < answerGroup.getChildCount(); i++){
+				RadioButton thisRadio = (RadioButton)answerGroup.getChildAt(i);
+				thisRadio.setVisibility(RadioButton.GONE);
+			}
+		}
+		
 		@Override
 		protected Question doInBackground(Void... nothing) {
 			try {
@@ -84,7 +99,7 @@ public class QuestionActivity extends Activity {
 
 			//get reference to radiogroup
 			RadioGroup answerGroup = (RadioGroup)findViewById(R.id.radioGroup_answers);
-
+			
 			//hide all answers
 			for(int i = 0; i < answerGroup.getChildCount(); i++){
 				RadioButton thisRadio = (RadioButton)answerGroup.getChildAt(i);
@@ -94,6 +109,7 @@ public class QuestionActivity extends Activity {
 			//set text and show new answers
 			for(int i = 0; i < answers.length; i++){
 				RadioButton thisRadio = (RadioButton)answerGroup.getChildAt(i);
+				thisRadio.setChecked(false);
 				char letter = (char) ('A' + i);
 				thisRadio.setText(letter + ": " + answers[i]);
 				thisRadio.setVisibility(RadioButton.VISIBLE);
@@ -124,6 +140,14 @@ public class QuestionActivity extends Activity {
 			
 			Answer answer = new Answer(choice, app.current_question.id, app.eid);
 			
+			//clear answer choices
+
+			for(int i = 0; i < answerGroup.getChildCount(); i++){
+				RadioButton thisRadio = (RadioButton)answerGroup.getChildAt(i);
+				thisRadio.setVisibility(RadioButton.GONE);
+			}
+
+		
 			SendAnswerTask sendTask = new SendAnswerTask();
 			sendTask.execute(answer);
 			
@@ -154,6 +178,15 @@ public class QuestionActivity extends Activity {
 		protected void onPostExecute(String sendResult){
 			TextView questionView = (TextView)findViewById(R.id.textView_question);
 			questionView.setText(sendResult);
+			
+			//disable send button while we're waiting for a new question
+			Button button = (Button)findViewById(R.id.button_send);
+			button.setEnabled(false);
+			
+			//run asynctask to wait for questions
+			WaitForQuestion wait = new WaitForQuestion();
+			wait.execute();
+			
 		}
 
 	}
